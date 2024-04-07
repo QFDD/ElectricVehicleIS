@@ -1,0 +1,48 @@
+# 实体及其属性
+## 人（Users）
+## UserID (主键)
+Name
+Role (车主、销售人员、维修服务人员)
+Email
+Phone
+Password
+## 车辆（Vehicles）
+
+OwnerID (外键，指向 Users)
+Model
+LicensePlate（主键）
+VIN (车辆识别码)
+PurchaseDate
+
+## 零配件（Parts）
+PartID (主键)
+Name
+VehicleModel (与车辆型号关联)
+StockQuantity
+## 营销活动（Campaigns）
+CampaignID (主键)
+Name
+Type (汽车营销、客户线索挖掘等)
+StartDate
+EndDate
+Budget
+## 客户服务记录（ServiceRecords）
+RecordID (主键)
+VehicleID (外键，指向 Vehicles)
+ServiceType (充电、换电、维修)
+Date
+Description
+Cost
+## 社交圈（SocialCircles）
+CircleID (主键)
+Name
+Description
+## 用户社交圈关系（UserSocialRelations）
+UserID (外键，指向 Users)
+CircleID (外键，指向 SocialCircles)
+# 关系
+每个车主可以拥有多辆车辆，但每辆车只能有一个车主。
+零配件与车辆模型相关联，表示特定模型的车辆可以使用这些零配件。
+营销活动可以是多种类型，如汽车营销、客户线索挖掘等。
+每次客户服务记录都关联到一辆车和其服务类型（如维修、充电等）。
+社交圈允许车主加入，通过用户社交圈关系表关联用户和社交圈。
