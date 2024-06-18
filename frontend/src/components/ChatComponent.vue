@@ -10,27 +10,7 @@
 </template>
 
 <script setup>
-import io from 'socket.io-client';
 
-const socket = io('http://127.0.0.1:5000');
-const messages = ref([]);
-const newMessage = ref('');
-onMounted(() => {
-  socket.on('newMessage', (message) => {
-    messages.value.push(message);
-  });
-});
-
-// 在组件卸载时断开WebSocket连接
-onUnmounted(() => {
-  socket.disconnect();
-});
-function send() {
-  if (newMessage.value.trim()) {
-    socket.emit('message', { user: 'Username', content: newMessage.value });
-    newMessage.value = '';  // 清空输入框
-  }
-}
 </script>
 
 <style>

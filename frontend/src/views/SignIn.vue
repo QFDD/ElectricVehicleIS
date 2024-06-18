@@ -16,13 +16,11 @@
         <label class="form-check-label" for="flexCheckDefault">
           Remember me
         </label>
-        <RouterLink to="signup">
+        <RouterLink to="/signup">
           Sign up
         </RouterLink>
       </div>
       <button @click="login" class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
-      <button @click="test" class="btn btn-primary w-100 py-2" type="submit">test</button>
     </form>
   </main>
 </template>
@@ -32,7 +30,7 @@ import axios from 'axios';
 import { ref, reactive, computed } from 'vue'
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex'
-const store = useStore()
+const store = useStore();
 const router = useRouter();
 const email = ref('')
 const password = ref('')
@@ -46,32 +44,25 @@ const formDataJson = computed(() => {
 })
 
 const login = async () => {
-  const response = await axios.post('http://127.0.0.1:5000/auth/login', formDataJson.value, {
-    headers: { 'Content-Type': 'application/json' },
+  const response = await axios.post('http://10.193.160.177:5000/auth/login', formDataJson.value, {
+    headers: { 'Content-Type': 'application/json',"ngrok-skip-browser-warning": "69420", }
   });
-  if (response.data.status === "success" && response.data.user_type === "client") {
-    alert("Successfully Logged in");
-    store.commit("SET_USER_TYPE_CUSTOMER")
-    router.push('/')
-  }
-  else if (response.data.status === "success" && response.data.user_type === "sales") {
-    alert("Sales Successfully Logged in");
-    store.commit("SET_USER_TYPE_SALES")
-    router.push('sales_home_page')
-  }
-  else if (response.data.status === "success" && response.data.user_type === "service") {
-    alert("Service Successfully Logged in");
-    store.commit("SET_USER_TYPE_SERVICE")
-    router.push('service_home_page')
-    alert(store.state.user.userType)
-  }
-  else {
+
+  if (response.data.status === "success") {
+    store.commit('SET_USER_ID', response.data.user_id);
+    if (response.data.user_type === "customer") {
+      store.commit("SET_USER_TYPE_CUSTOMER");
+      router.push('/');
+    } else if (response.data.user_type === "sales") {
+      store.commit("SET_USER_TYPE_SALES");
+      router.push(`/user_profile/${store.state.user.id}`);
+    } else if (response.data.user_type === "service") {
+      store.commit("SET_USER_TYPE_SERVICE");
+      router.push(`/user_profile/${store.state.user.id}`);
+    }
+  } else {
     alert(response.data.error);
   }
-}
-
-function test() {
-  alert(formDataJson.value)
-}
+};
 
 </script>

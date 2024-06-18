@@ -1,0 +1,101 @@
+RecordID,VehicleID,ServiceType,Date,Description,Cost
+1,740,充电,2023-11-29,Charging session,62.66
+2,603,换电,2023-12-25,Electrical system repair,191.58
+3,684,维修,2023-03-05,Brake system check,89.3
+4,558,充电,2023-12-02,Engine checkup,499.76
+5,10,充电,2023-08-14,Regular maintenance check,284.08
+6,118,维修,2023-01-27,Brake system check,183.71
+7,282,换电,2023-11-29,Engine checkup,421.25
+8,721,充电,2023-07-08,Tire replacement,307.41
+9,785,换电,2023-01-18,Regular maintenance check,380.88
+10,610,维修,2023-09-19,Battery replacement,430.09
+11,383,维修,2023-10-18,Brake system check,489.31
+12,322,换电,2023-02-08,Electrical system repair,319.17
+13,305,充电,2023-05-25,Regular maintenance check,195.72
+14,648,充电,2023-10-01,Brake system check,341.24
+15,856,换电,2023-12-13,Tire replacement,250.41
+16,459,换电,2023-03-23,Regular maintenance check,455.71
+17,495,维修,2023-05-31,Battery replacement,133.95
+18,887,换电,2023-11-20,Charging session,473.03
+19,48,维修,2023-06-06,Tire replacement,225.67
+20,149,换电,2023-04-01,Tire replacement,235.58
+21,540,维修,2023-04-23,Battery replacement,363.83
+22,883,换电,2023-05-27,Electrical system repair,491.36
+23,604,维修,2023-08-15,Engine checkup,459.2
+24,328,维修,2023-06-08,Tire replacement,417.75
+25,94,换电,2023-01-01,Charging session,464.5
+26,187,换电,2023-03-22,Brake system check,120.03
+27,315,充电,2023-10-27,Charging session,448.68
+28,607,维修,2023-02-09,Regular maintenance check,70.1
+29,297,换电,2023-08-06,Electrical system repair,376.15
+30,164,换电,2023-09-26,Electrical system repair,154.0
+31,396,充电,2023-03-12,Electrical system repair,491.85
+32,919,维修,2023-11-07,Battery replacement,247.6
+33,38,维修,2023-11-25,Battery replacement,129.31
+34,493,充电,2023-08-08,Charging session,415.18
+35,535,充电,2023-01-27,Battery replacement,98.45
+36,42,维修,2023-11-16,Battery replacement,321.53
+37,316,换电,2023-04-10,Charging session,388.42
+38,238,维修,2023-06-29,Charging session,409.43
+39,559,维修,2023-05-01,Regular maintenance check,477.78
+40,887,换电,2023-07-30,Tire replacement,158.09
+41,157,换电,2023-05-19,Regular maintenance check,140.97
+42,643,充电,2023-12-12,Regular maintenance check,191.77
+43,582,换电,2023-04-28,Battery replacement,323.85
+44,890,维修,2023-06-12,Electrical system repair,488.16
+45,930,维修,2023-05-21,Tire replacement,205.22
+46,405,充电,2023-11-27,Electrical system repair,181.09
+47,47,充电,2023-08-24,Engine checkup,155.05
+48,374,充电,2023-02-22,Brake system check,268.29
+49,63,换电,2023-08-06,Tire replacement,275.89
+50,52,充电,2023-05-07,Charging session,311.13
+51,376,充电,2023-03-29,Engine checkup,138.07
+52,665,充电,2023-06-30,Engine checkup,53.62
+53,46,换电,2023-09-04,Tire replacement,194.01
+54,534,充电,2023-02-19,Regular maintenance check,100.94
+55,32,维修,2023-04-28,Engine checkup,96.52
+56,413,维修,2023-02-12,Regular maintenance check,316.32
+57,380,充电,2023-11-06,Electrical system repair,469.23
+58,860,换电,2023-06-29,Charging session,346.59
+59,309,充电,2023-10-11,Charging session,379.07
+60,390,换电,2023-09-06,Regular maintenance check,329.53
+61,705,充电,2023-11-29,Electrical system repair,313.73
+62,349,换电,2023-09-12,Battery replacement,418.88
+63,407,换电,2023-06-14,Electrical system repair,468.71
+64,867,维修,2023-02-20,Battery replacement,462.57
+65,497,充电,2023-01-27,Engine checkup,290.1
+66,811,换电,2023-01-28,Charging session,168.9
+67,742,换电,2023-06-24,Battery replacement,464.71
+68,366,换电,2023-02-28,Brake system check,85.54
+69,76,换电,2023-05-23,Brake system check,236.43
+70,711,维修,2023-08-26,Battery replacement,383.88
+71,670,维修,2023-02-11,Brake system check,483.91
+72,327,换电,2023-01-07,Electrical system repair,172.64
+73,290,换电,2023-05-19,Battery replacement,232.0
+74,900,维修,2023-01-17,Battery replacement,114.99
+75,412,充电,2023-10-21,Electrical system repair,56.5
+76,281,换电,2023-05-23,Electrical system repair,373.34
+77,528,换电,2023-11-27,Regular maintenance check,308.21
+78,84,换电,2023-02-23,Tire replacement,318.43
+79,690,充电,2023-11-04,Regular maintenance check,284.65
+80,447,充电,2023-05-14,Brake system check,239.5
+81,897,换电,2023-12-13,Charging session,183.58
+82,851,维修,2023-05-28,Brake system check,89.09
+83,717,换电,2023-12-15,Tire replacement,239.32
+84,371,充电,2023-12-26,Engine checkup,239.4
+85,72,充电,2023-11-12,Electrical system repair,177.72
+86,168,充电,2023-09-08,Charging session,395.26
+87,520,维修,2023-10-05,Charging session,153.44
+88,413,充电,2023-03-30,Regular maintenance check,184.89
+89,389,维修,2023-12-03,Regular maintenance check,481.17
+90,423,维修,2023-06-30,Engine checkup,471.7
+91,633,换电,2023-07-20,Battery replacement,413.24
+92,201,换电,2023-02-27,Battery replacement,486.34
+93,19,充电,2023-11-11,Engine checkup,401.99
+94,927,维修,2023-11-17,Brake system check,362.64
+95,480,充电,2023-07-25,Battery replacement,460.6
+96,546,维修,2023-10-18,Engine checkup,165.42
+97,680,充电,2023-08-02,Regular maintenance check,260.56
+98,998,充电,2023-11-25,Battery replacement,408.76
+99,111,充电,2023-01-05,Charging session,312.16
+100,955,充电,2023-08-07,Battery replacement,67.77

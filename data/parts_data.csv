@@ -1,0 +1,41 @@
+PartID,Name,VehicleModel,StockQuantity
+1,Brake Pad for Model A,Model A,75
+2,Oil Filter for Model A,Model A,79
+3,Air Filter for Model A,Model A,86
+4,Spark Plug for Model A,Model A,21
+5,Battery for Model A,Model A,4
+6,Headlight Bulb for Model A,Model A,96
+7,Windshield Wiper for Model A,Model A,29
+8,Fuel Pump for Model A,Model A,58
+9,Alternator for Model A,Model A,95
+10,Radiator for Model A,Model A,77
+11,Brake Pad for Model B,Model B,83
+12,Oil Filter for Model B,Model B,88
+13,Air Filter for Model B,Model B,48
+14,Spark Plug for Model B,Model B,36
+15,Battery for Model B,Model B,97
+16,Headlight Bulb for Model B,Model B,92
+17,Windshield Wiper for Model B,Model B,44
+18,Fuel Pump for Model B,Model B,91
+19,Alternator for Model B,Model B,38
+20,Radiator for Model B,Model B,84
+21,Brake Pad for Model C,Model C,82
+22,Oil Filter for Model C,Model C,86
+23,Air Filter for Model C,Model C,21
+24,Spark Plug for Model C,Model C,68
+25,Battery for Model C,Model C,11
+26,Headlight Bulb for Model C,Model C,80
+27,Windshield Wiper for Model C,Model C,76
+28,Fuel Pump for Model C,Model C,55
+29,Alternator for Model C,Model C,21
+30,Radiator for Model C,Model C,5
+31,Brake Pad for Model D,Model D,76
+32,Oil Filter for Model D,Model D,23
+33,Air Filter for Model D,Model D,84
+34,Spark Plug for Model D,Model D,92
+35,Battery for Model D,Model D,68
+36,Headlight Bulb for Model D,Model D,4
+37,Windshield Wiper for Model D,Model D,10
+38,Fuel Pump for Model D,Model D,1
+39,Alternator for Model D,Model D,92
+40,Radiator for Model D,Model D,65

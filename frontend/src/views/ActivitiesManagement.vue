@@ -1,62 +1,64 @@
 <template>
-  <div v-if="editor">
-    <button @click="editor.chain().focus().toggleBold().run()"
-      :disabled="!editor.can().chain().focus().toggleBold().run()" :class="{ 'is-active': editor.isActive('bold') }">
-      Bold
-    </button>
-    <button @click="editor.chain().focus().toggleItalic().run()"
-      :disabled="!editor.can().chain().focus().toggleItalic().run()"
-      :class="{ 'is-active': editor.isActive('italic') }">
-      Italic
-    </button>
-    <EditorContent :editor="editor" />
+  <div>
+    <h1>创建营销活动</h1>
+    <form @submit.prevent="submitForm">
+      <div class="form-group">
+        <label for="name">活动名称</label>
+        <input type="text" id="name" v-model="event.name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="description">活动描述</label>
+        <textarea id="description" v-model="event.description" class="form-control" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="start_date">开始日期</label>
+        <input type="date" id="start_date" v-model="event.start_date" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="end_date">结束日期</label>
+        <input type="date" id="end_date" v-model="event.end_date" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="budget">预算</label>
+        <input type="number" id="budget" v-model="event.budget" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">创建活动</button>
+    </form>
   </div>
 </template>
 
-<script setup>
-import StarterKit from '@tiptap/starter-kit'
-import { useEditor, EditorContent } from '@tiptap/vue-3'
-import { onBeforeUnmount } from 'vue'
+<script>
+import { ref } from 'vue';
+import axios from 'axios';
 
-const editor = useEditor({
-  extensions: [
-    StarterKit,
-  ],
-  content: `
-        <h2>
-          Hi there,
-        </h2>
-        <p>
-          this is a <em>basic</em> example of <strong>tiptap</strong>. Sure, there are all kind of basic text styles you’d probably expect from a text editor. But wait until you see the lists:
-        </p>
-        <ul>
-          <li>
-            That’s a bullet list with one …
-          </li>
-          <li>
-            … or two list items.
-          </li>
-        </ul>
-        <p>
-          Isn’t that great? And all of that is editable. But wait, there’s more. Let’s try a code block:
-        </p>
-        <pre><code class="language-css">body {
-  display: none;
-}</code></pre>
-        <p>
-          I know, I know, this is impressive. It’s only the tip of the iceberg though. Give it a try and click a little bit around. Don’t forget to check the other examples too.
-        </p>
-        <blockquote>
-          Wow, that’s amazing. Good work, boy! 👏
-          <br />
-          — Mom
-        </blockquote>
-      `,
-})
+export default {
+  setup() {
+    const event = ref({
+      name: '',
+      description: '',
+      start_date: '',
+      end_date: '',
+      budget: 0
+    });
 
+    const submitForm = () => {
+      axios.post('http://10.193.160.177:5000/sales/marketing_events', event.value)
+        .then(() => {
+          alert('successfully market events');
+        })
+        .catch(error => {
+          console.error("There was an error creating the marketing event:", error);
+        });
+    };
 
-onBeforeUnmount(() => {
-  editor.value.destroy()
-}
-) 
+    return {
+      event,
+      submitForm
+    };
+  }
+};
 </script>
+
+<style scoped>
+
+</style>

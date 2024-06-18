@@ -13,31 +13,49 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 bp.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-@bp.route('/register', methods=('GET', 'POST'))
+@bp.route('/user/<int:user_id>', methods=['GET'])
+def get_user(user_id):
+    conn = get_db()
+    cursor = conn.cursor()
+    user = cursor.execute('SELECT * FROM Users WHERE id = ?', (user_id,)).fetchone()
+    if user is None:
+        return jsonify({'error': 'User not found'}), 404
+    return jsonify({
+        'name': user[1],
+        'contact': user[4]
+    })
+
+@bp.route('/user/<int:user_id>/update_contact', methods=['POST'])
+def update_contact(user_id):
+    new_contact = request.json.get('contact')
+    if not new_contact:
+        return jsonify({'error': 'Invalid input'}), 400
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE Users SET contact = ? WHERE id = ?', (new_contact, user_id))
+    conn.commit()
+    conn.close()
+    return jsonify({'message': 'Contact updated successfully'})
+
+@bp.route('/register', methods=['POST'])
 def register():
-    if request.method == 'POST':
-        content = request.form
-        username = content['name']
-        password = content['password']
-        phone = content['phone']
-        email = content['email']
-        role = content['role']
-        db = get_db()
-        error = None
-        try:
-            db.execute(
-                 "INSERT INTO Users (username,role,email,phone,password) VALUES (?, ?, ?, ?, ?)",
-                    (username,role,email,phone,generate_password_hash(password)),
-            )
-            db.commit()
-        except db.IntegrityError:
-            error = f"User {username} is already registered."
-        else:
-            return redirect(url_for("auth.login"))
-        if error is None:
-            response = make_response({'status':'success'})
-    
-    return response 
+    data = request.json
+    name = data.get('name')
+    email = data.get('email')
+    password = data.get('password')
+    role = data.get('role')
+    phone = data.get('phone')
+
+    if not name or not email or not password or not role or not phone:
+        return jsonify({'status': 'error', 'message': 'Missing required fields'}), 400
+
+    conn = get_db()
+    conn.cursor().execute('INSERT INTO Users (name, email, password, role, phone) VALUES (?, ?, ?, ?, ?)',
+                 (name, email, password, role, phone))
+    conn.commit()
+    conn.close()
+
+    return jsonify({'status': 'success', 'message': 'User registered successfully'}), 201
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
@@ -59,7 +77,8 @@ def login():
         
         if error is None:
             user_type = user[2]
-            response = {'status': "success", 'user_type': user_type}
+            user_id = user[0]
+            response = {'status': "success", 'user_type': user_type, 'user_id':user_id}
             return jsonify(response)  
 
         return jsonify({'status': 'failed', 'error': error})

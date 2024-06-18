@@ -1,10 +1,10 @@
 <template>
   <component :is="currentNavBar"></component>
   <div class="container">
-    <p>
-      <strong>Current route path:</strong> {{ $route.fullPath }}
-    </p>
     <RouterView />
+    <footer>
+        <p>&copy; 2024 新能源汽车客户关系管理系统. 保留所有权利。</p>
+    </footer>
   </div>
 </template>
 

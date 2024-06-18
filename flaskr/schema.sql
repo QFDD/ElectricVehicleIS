@@ -11,11 +11,11 @@ CREATE TABLE Users (
 -- 创建车辆表
 CREATE TABLE Vehicles (
     VehicleID INTEGER PRIMARY KEY AUTOINCREMENT,
-    OwnerID INTEGER,
-    Model TEXT NOT NULL,
     LicensePlate TEXT UNIQUE NOT NULL,
+    Model TEXT NOT NULL,
     VIN TEXT UNIQUE NOT NULL,
     PurchaseDate DATE NOT NULL,
+    OwnerID INTEGER,
     FOREIGN KEY (OwnerID) REFERENCES Users(UserID)
 );
 
